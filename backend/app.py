@@ -3,11 +3,11 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
-from extensions import db
+from .extensions import db
 
 # Import Blueprints
-from routes.user_routes import user_bp
-from routes.workout_routes import workout_bp  # Correct import for workout blueprint
+from .routes.user_routes import user_bp
+from .routes.workout_routes import workout_bp  # Correct import for workout blueprint
 
 # Load environment variables from .env file
 load_dotenv()

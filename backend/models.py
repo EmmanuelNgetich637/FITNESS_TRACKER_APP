@@ -1,8 +1,8 @@
 from app import db
-from datatime import datetime
+from datetime import datetime
 
-class User(db.model):
-    id = db.Column(db.Ineteger, primary_key=True)
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     workouts = db.relationship('Workout', backref='user', lazy=True)
 
@@ -14,7 +14,7 @@ class User(db.model):
         }
     
 class Workout(db.Model):
-    id = db.Column(db.integer, primary-key=True)
+    id = db.Column(db.Integer, primary_key=True)
     activity = db.Column(db.String(120), nullable=False)
     duration = db.Column(db.Integer) #in minutes
     date = db.Column(db.Date, default=datetime.utcnow)

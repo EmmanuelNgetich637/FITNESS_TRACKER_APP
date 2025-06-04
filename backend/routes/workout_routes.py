@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
-from app import db
 from models import User, Workout
+from extensions import db
+
 
 workout_bp = Blueprint('workout_bp', __name__)
 
@@ -26,7 +27,7 @@ def add_workout(user_id):
 
 @workout_bp.route('/<int:user_id>', methods=['GET'])
 def get_workouts(user_id):
-    uset = User.query.get(user_id)
+    user = User.query.get(user_id)  # fixed typo here
     if not user:
         return jsonify({'error': 'User not found'}), 404
     
